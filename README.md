@@ -1,0 +1,1 @@
+# turkey-earthquake-api
