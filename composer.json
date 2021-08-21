@@ -1,0 +1,15 @@
+{
+  "name": "mrjavaci/turkey-earthquake-api",
+  "type": "project",
+  "require": {
+    "guzzlehttp/guzzle": "^7.3",
+    "ext-iconv": "*",
+    "ext-pdo": "*"
+  },
+  "authors": [
+    {
+      "name": "Osman Taha Kıyıcılar",
+      "email": "tr.osmantaha@gmail.com"
+    }
+  ]
+}
