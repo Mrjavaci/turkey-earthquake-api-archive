@@ -29,6 +29,7 @@ Install turkey-earthquake-api with composer.
   composer install 
 ```
 
+Import the earthquake.sql file in the Assets folder into the mysql database.
 
 ## Environment Variables
 
