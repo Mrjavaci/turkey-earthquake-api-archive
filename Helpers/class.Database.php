@@ -58,7 +58,7 @@ class Database
                 "hash" => $model->hash
             ));
             $sth->fetch();
-
+            echo $model->date . " -- " . $model->time . " eklendi!";
         }
     }
 }

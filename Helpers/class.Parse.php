@@ -12,7 +12,7 @@ class Parse
     public Database $db;
     public array $modelsArray;
 
-    public function __construct($page)
+    public function __construct($page = null)
     {
         $this->page = iconv("windows-1254", "UTF-8", $page);
     }
@@ -43,6 +43,8 @@ class Parse
                 );
                 if (!$this->db->ifHashUsed($model->hash)) {
                     array_push($modelsArray, $model);
+                } else {
+                    echo $parts[0] . " - " . $parts[1] . "using.";
                 }
             } else {
                 if (str_contains($val, "----------")) {
@@ -53,11 +55,13 @@ class Parse
         $this->modelsArray = $modelsArray;
     }
 
-    private function findLocation(array $parts): string
+    public function findLocation(array $parts, $isInner = false): string
     {
-        $newParts = array_slice($parts, 8, count($parts));
+        if (!$isInner) {
+            $parts = array_slice($parts, 8, count($parts));
+        }
         $location = "";
-        foreach ($newParts as $newPart) {
+        foreach ($parts as $newPart) {
             if (str_contains($newPart, "İlksel") || str_contains($newPart, "REVIZE")) {
                 return $location;
             }

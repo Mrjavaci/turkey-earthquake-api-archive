@@ -4,7 +4,9 @@
   "require": {
     "guzzlehttp/guzzle": "^7.3",
     "ext-iconv": "*",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "ext-simplexml": "*",
+    "symfony/var-dumper": "^5.3"
   },
   "authors": [
     {
