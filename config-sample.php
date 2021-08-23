@@ -9,3 +9,4 @@ const DB_host = "localhost";
 const DB_name = "db_name";
 const DB_user = "db_user";
 const DB_pass = "pass";
+const OnApiRequestCheckNewData = true;

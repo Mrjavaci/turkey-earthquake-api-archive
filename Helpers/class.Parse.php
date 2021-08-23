@@ -10,6 +10,7 @@ class Parse
 {
     public string $page;
     public Database $db;
+    public array $modelsArray;
 
     public function __construct($page)
     {
@@ -49,9 +50,7 @@ class Parse
                 }
             }
         }
-        $this->db->insertArray($modelsArray);
-        echo json_encode($modelsArray);
-
+        $this->modelsArray = $modelsArray;
     }
 
     private function findLocation(array $parts): string

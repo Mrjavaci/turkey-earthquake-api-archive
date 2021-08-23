@@ -7,3 +7,4 @@ $page = $connection->getBodyOfPage();
 $parse = new Parse($page);
 $parse->db = $db;
 $parse->normalize();
+$db->insertArray($parse->modelsArray);
