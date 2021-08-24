@@ -9,6 +9,17 @@ mysql.
 
 Currently under development.
 
+## Note
+
+I found xml files of old earthquakes at http://udim.koeri.boun.edu.tr/zeqmap link.  
+ex: http://udim.koeri.boun.edu.tr/zeqmap/xmlt/202108.xml  
+Link list: ./Bot/links.xml  
+
+I wrote a bot that will import this information into the relevant mysql database. (./Bot/*)  
+ 
+FYI
+
+
 ## Requirements
 
 Php >= 8.0.0  
