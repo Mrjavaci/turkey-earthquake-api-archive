@@ -17,7 +17,7 @@ class Database
             $db->exec("SET CHARSET UTF8");
             $db->exec("SET NAMES UTF8");
         } catch (PDOException $e) {
-            die ("error -> " . $e);
+            echo "error -> " . $e;
         }
         $this->db = $db;
     }

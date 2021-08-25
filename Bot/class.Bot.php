@@ -30,26 +30,30 @@ class Bot
         $eqList = new SimpleXMLElement($body);
         $modelsArray = array();
         foreach ($eqList as $earthQuake) {
-            $name = (string)$earthQuake->attributes()->name;
+            $attributes = $earthQuake->attributes();
+            $name = (string)$attributes->name;
             $ex = explode(" ", $name);
-            $location = $this->parse->findLocation(explode(" ", (string)$earthQuake->attributes()->lokasyon), true);
-
-            $model = new QuakeModel(
-                $ex[0],
-                $ex[1],
-                (float)$earthQuake->attributes()->lat,
-                (float)$earthQuake->attributes()->lng,
-                (float)$earthQuake->attributes()->Depth,
-                0,
-                (float)$earthQuake->attributes()->mag,
-                0,
-                $location,
-            );
-            if (!$this->db->ifHashUsed($model->hash)) {
-                array_push($modelsArray, $model);
-            } else {
-                echo $ex[0] . " - " . $ex[1] . "using.";
+            $location = $this->parse->findLocation(explode(" ", (string)$attributes->lokasyon), true);
+            if ($attributes != null) {
+                $model = new QuakeModel(
+                    $ex[0],
+                    $ex[1],
+                    (float)$attributes->lat,
+                    (float)$attributes->lng,
+                    (float)$attributes->Depth,
+                    0,
+                    (float)$attributes->mag,
+                    0,
+                    $location,
+                );
+                if (!$this->db->ifHashUsed($model->hash)) {
+                    array_push($modelsArray, $model);
+                } else {
+                    echo $ex[0] . " - " . $ex[1] . "using.";
+                }
             }
+
+
         }
         $this->db->insertArray($modelsArray);
 

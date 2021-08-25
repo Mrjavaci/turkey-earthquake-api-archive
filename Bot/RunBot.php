@@ -13,7 +13,10 @@ $xmlRaw = file_get_contents(__DIR__ . "/links.xml");
 try {
     $xml = new SimpleXMLElement($xmlRaw);
     foreach ($xml as $earthQuake) {
-        $bot->runBot("http://udim.koeri.boun.edu.tr/zeqmap/xmlt/" . (string)$earthQuake->attributes()->VALUE . ".xml");
+        $attributes = $earthQuake->attributes();
+        if ($attributes != null) {
+            $bot->runBot("http://udim.koeri.boun.edu.tr/zeqmap/xmlt/" . (string)$attributes->VALUE . ".xml");
+        }
     }
 
 } catch (Exception $e) {
