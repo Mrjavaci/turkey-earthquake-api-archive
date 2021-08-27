@@ -2,8 +2,6 @@
 
 The last 500 earthquakes that occurred in Turkey are shared by KANDİLLİ OBSERVATORY AND EARTHQUAKE RESEARCH INSTITUTE.
 
-Unfortunately, there is no API and any area where we can see before the last 500 earthquakes.
-
 The API is used both to make detailed queries (by date, earthquake magnitude, location, etc.) and to add current data to
 mysql.
 
