@@ -50,7 +50,7 @@ class Bot
                     if (!$this->db->ifHashUsed($model->hash)) {
                         array_push($modelsArray, $model);
                     } else {
-                        echo $ex[0] . " - " . $ex[1] . "using.";
+                        echo $ex[0] . " - " . $ex[1] . "using.\n";
                     }
                 }
 

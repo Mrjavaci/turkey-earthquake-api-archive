@@ -21,7 +21,14 @@ class Connection
 
     public function getBodyOfPage(): string
     {
-        $res = $this->client->request('GET', $this->url);
+        try {
+            echo "connecting ->" . $this->url."\n";
+            $res = $this->client->request('GET', $this->url);
+            echo "connected ->" . $this->url."\n";
+        } catch (Exception $e) {
+            echo "**************  Exception *************\n";
+            $this->getBodyOfPage();
+        }
         return (string)$res->getBody();
     }
 }

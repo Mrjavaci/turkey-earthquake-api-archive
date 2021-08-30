@@ -24,7 +24,6 @@ class Database
 
     public function ifHashUsed(?string $hash): bool
     {
-        return true;
         $sth = $this->db->prepare("select id from earthquake where hash = :hash");
         $sth->execute(array(
             "hash" => $hash
@@ -59,7 +58,7 @@ class Database
                 "hash" => $model->hash
             ));
             $sth->fetch();
-            echo $model->date . " -- " . $model->time . " eklendi!";
+            //echo $model->date . " -- " . $model->time . " eklendi!\n";
         }
     }
 }
