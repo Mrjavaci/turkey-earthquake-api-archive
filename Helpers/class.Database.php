@@ -24,6 +24,7 @@ class Database
 
     public function ifHashUsed(?string $hash): bool
     {
+        return true;
         $sth = $this->db->prepare("select id from earthquake where hash = :hash");
         $sth->execute(array(
             "hash" => $hash
